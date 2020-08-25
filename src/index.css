@@ -1,10 +1,13 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
 
 body {
   margin: 0;
   font-family: SlidoSansFont, helvetica, arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+ul {
+  list-style-type: none;
 }
 
 @font-face {

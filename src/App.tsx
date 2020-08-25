@@ -1,25 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import EventList from "./components/EventList";
 
 const AppContainer = styled.div`
   text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
 `;
 
-const AppHeader = styled.header`
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-`;
+export interface IEvent {
+  name: string;
+  date: Date;
+}
+
+const initialEvents: IEvent[] = [
+  {
+    name: "Reactive Conf",
+    date: new Date(2019, 11, 17),
+  },
+  {
+    name: "React Alicante",
+    date: new Date(2019, 4, 3),
+  },
+];
 
 function App() {
+  // const [events, setEvents] = useState(initialEvents);
+  const [events] = useState(initialEvents);
+
   return (
     <AppContainer>
-      <AppHeader>
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </AppHeader>
+      <h1>Events</h1>
+      <EventList events={events} />
     </AppContainer>
   );
 }
