@@ -49,13 +49,16 @@ const initialEvents: IEvent[] = [
 ];
 
 function App() {
-  // const [events, setEvents] = useState(initialEvents);
-  const [events] = useState(initialEvents);
-
+  const [events, setEvents] = useState(initialEvents);
+  // const [events] = useState(initialEvents);
+  const onAddEvent = (event: IEvent) => {
+    console.log(event);
+    setEvents([...events, event]);
+  };
   return (
     <AppContainer>
       <h1>Events</h1>
-      <EventForm />
+      <EventForm onAddEvent={onAddEvent} />
       <EventList events={events} />
     </AppContainer>
   );

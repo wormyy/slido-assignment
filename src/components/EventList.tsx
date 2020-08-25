@@ -21,7 +21,7 @@ const EventList: React.SFC<EventProps> = ({ events }) => {
   return (
     <StyledEventList>
       {events.map((event) => (
-        <Event event={event} />
+        <Event key={event.name} event={event} />
       ))}
     </StyledEventList>
   );

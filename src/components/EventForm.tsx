@@ -4,45 +4,61 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
+import { useForm, Controller } from "react-hook-form";
 
 import styled from "styled-components";
+import { IEvent } from '../App';
 
-export interface EventFormProps {}
+export interface EventFormProps {
+  onAddEvent: (event: IEvent) => void;
+}
 
-const StyledTextField = styled(TextField)`
-  margin-top: 16px;
-`;
-
-const StyledForm = styled.form`
+const StyledCardContent = styled(CardContent)`
   display: flex;
   flex-direction: column;
 `;
 
-const EventForm: React.SFC<EventFormProps> = () => {
+const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
+  const {  control, handleSubmit, errors } = useForm<IEvent>();
+  console.log("errors: ", errors);
+  const onSubmit = (data) => console.log(data);
+
   return (
     <Card>
-      <CardContent>
-        <h2>Add Event</h2>
-        <StyledForm noValidate autoComplete="off">
-          <StyledTextField label="Event name" id="event-name" />
-          <StyledTextField
-            id="date"
+      <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+        <StyledCardContent>
+          <h2>Add Event</h2>
+          <Controller
+            name="name"
+            label="Event name"
+            as={TextField}
+            control={control}
+            defaultValue=""
+          />
+          <Controller
+            name="date"
             label="Event date"
+            as={TextField}
+            control={control}
             type="date"
             defaultValue="2017-05-24"
-            // className={classes.textField}
             InputLabelProps={{
               shrink: true,
             }}
             style={{ marginTop: 16 }}
           />
-        </StyledForm>
-      </CardContent>
-      <CardActions>
-        <Button variant="contained" size="large" color="primary">
-          Add event
-        </Button>
-      </CardActions>
+        </StyledCardContent>
+        <CardActions>
+          <Button
+            variant="contained"
+            size="large"
+            color="primary"
+            type="submit"
+          >
+            Add event
+          </Button>
+        </CardActions>
+      </form>
     </Card>
   );
 };
