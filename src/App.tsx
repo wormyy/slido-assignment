@@ -11,16 +11,39 @@ const AppContainer = styled.div`
 export interface IEvent {
   name: string;
   date: Date;
+  place: string;
 }
 
 const initialEvents: IEvent[] = [
   {
-    name: "Reactive Conf",
-    date: new Date(2019, 11, 17),
+    name: "React Day Berlin 2021",
+    date: new Date(2021, 0, 20),
+    place: "Berlin, Germany",
+  },
+  {
+    name: "React Day Bangalore 2021",
+    date: new Date(2021, 0, 20),
+    place: "Bangalore, India",
+  },
+  {
+    name: "Reactathon 2020",
+    date: new Date(2020, 2, 30),
+    place: "San Francisco, CA",
   },
   {
     name: "React Alicante",
     date: new Date(2019, 4, 3),
+    place: "Alicante, Spain",
+  },
+  {
+    name: "ReactEurope 2020",
+    date: new Date(2020, 4, 3),
+    place: "Paris, France",
+  },
+  {
+    name: "React Finland 2020",
+    date: new Date(2020, 4, 24),
+    place: "Helsinki, FI",
   },
 ];
 
