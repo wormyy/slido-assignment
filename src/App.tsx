@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import EventList from "./components/EventList";
+import EventForm from "./components/EventForm";
 
 const AppContainer = styled.div`
   text-align: center;
@@ -54,6 +55,7 @@ function App() {
   return (
     <AppContainer>
       <h1>Events</h1>
+      <EventForm />
       <EventList events={events} />
     </AppContainer>
   );
