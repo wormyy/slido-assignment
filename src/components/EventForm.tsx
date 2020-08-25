@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import { useForm, Controller } from "react-hook-form";
 
 import styled from "styled-components";
-import { IEvent } from '../App';
+import { IEvent } from "../App";
 
 export interface EventFormProps {
   onAddEvent: (event: IEvent) => void;
@@ -19,13 +19,11 @@ const StyledCardContent = styled(CardContent)`
 `;
 
 const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
-  const {  control, handleSubmit, errors } = useForm<IEvent>();
-  console.log("errors: ", errors);
-  const onSubmit = (data) => console.log(data);
-
+  const { control, handleSubmit, errors } = useForm<IEvent>();
+  console.log(errors);
   return (
     <Card>
-      <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+      <form noValidate autoComplete="off" onSubmit={handleSubmit(onAddEvent)}>
         <StyledCardContent>
           <h2>Add Event</h2>
           <Controller
@@ -33,18 +31,28 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
             label="Event name"
             as={TextField}
             control={control}
+            rules={{ required: true }}
             defaultValue=""
+            error={Boolean(errors.name)}
+          />
+          <Controller
+            name="place"
+            label="Place of the event"
+            as={TextField}
+            control={control}
+            rules={{ required: true }}
+            defaultValue=""
+            error={Boolean(errors.place)}
           />
           <Controller
             name="date"
             label="Event date"
             as={TextField}
             control={control}
+            rules={{ required: true }}
             type="date"
             defaultValue="2017-05-24"
-            InputLabelProps={{
-              shrink: true,
-            }}
+            error={Boolean(errors.date)}
             style={{ marginTop: 16 }}
           />
         </StyledCardContent>
