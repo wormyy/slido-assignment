@@ -38,5 +38,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@bahmutov/add-typescript-to-cypress": "2.1.2",
+    "cypress": "5.0.0",
+    "webpack": "4.44.1"
   }
 }
