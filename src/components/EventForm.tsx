@@ -20,7 +20,7 @@ const StyledCardContent = styled(CardContent)`
 
 const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
   const { control, handleSubmit, errors } = useForm<IEvent>();
-  console.log(errors);
+
   return (
     <Card>
       <form noValidate autoComplete="off" onSubmit={handleSubmit(onAddEvent)}>
@@ -34,7 +34,7 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
             rules={{ required: true }}
             defaultValue=""
             error={Boolean(errors.name)}
-            data-testId="input-name"
+            data-test-id="input-name"
           />
           <Controller
             name="place"
@@ -44,7 +44,7 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
             rules={{ required: true }}
             defaultValue=""
             error={Boolean(errors.place)}
-            data-testId="input-place"
+            data-test-id="input-place"
           />
           <Controller
             name="date"
@@ -56,7 +56,7 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
             defaultValue="2017-05-24"
             error={Boolean(errors.date)}
             style={{ marginTop: 16 }}
-            data-testId="input-date"
+            data-test-id="input-date"
           />
         </StyledCardContent>
         <CardActions>
@@ -65,7 +65,7 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
             size="large"
             color="primary"
             type="submit"
-            data-testId="button-submit"
+            data-test-id="button-submit"
           >
             Add event
           </Button>

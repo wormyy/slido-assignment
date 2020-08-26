@@ -9,10 +9,10 @@ context("Add event to the list", () => {
 
   it("Adds an event", function () {
     // Enter data to the form
-    cy.get("[data-testid=input-name]").type("React Summit");
-    cy.get("[data-testid=input-place]").type("Amsterdam");
-    cy.get("[data-testid=input-date]").type("2021-06-20");
-    cy.get("[data-testid=button-submit]").click();
+    cy.get("[data-test-id=input-name]").type("React Summit");
+    cy.get("[data-test-id=input-place]").type("Amsterdam");
+    cy.get("[data-test-id=input-date]").type("2021-06-20");
+    cy.get("[data-test-id=button-submit]").click();
 
     // Verify that we created the event
     cy.contains("React Summit");
