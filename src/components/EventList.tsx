@@ -7,14 +7,13 @@ export interface EventProps {
   events: IEvent[];
 }
 
-const StyledEventList = styled.ul`
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+const StyledEventList = styled.div`
+  /* box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
   padding: 1.5rem 0;
-  /* font-size: 1rem; */
 
   display: flex;
-  flex-direction: column;
+  flex-direction: column; */
 `;
 
 const EventList: React.SFC<EventProps> = ({ events }) => {

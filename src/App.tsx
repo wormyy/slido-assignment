@@ -11,6 +11,7 @@ const AppContainer = styled.div`
 
 export interface IEvent {
   name: string;
+  description: string;
   date: Date;
   place: string;
 }
@@ -18,31 +19,43 @@ export interface IEvent {
 const initialEvents: IEvent[] = [
   {
     name: "React Day Berlin 2021",
+    description:
+      "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
     date: new Date(2021, 0, 20),
     place: "Berlin, Germany",
   },
   {
     name: "React Day Bangalore 2021",
+    description:
+      "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
     date: new Date(2021, 0, 20),
     place: "Bangalore, India",
   },
   {
     name: "Reactathon 2020",
+    description:
+      "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
     date: new Date(2020, 2, 30),
     place: "San Francisco, CA",
   },
   {
     name: "React Alicante",
+    description:
+      "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
     date: new Date(2019, 4, 3),
     place: "Alicante, Spain",
   },
   {
     name: "ReactEurope 2020",
+    description:
+      "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
     date: new Date(2020, 4, 3),
     place: "Paris, France",
   },
   {
     name: "React Finland 2020",
+    description:
+      "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
     date: new Date(2020, 4, 24),
     place: "Helsinki, FI",
   },
@@ -50,9 +63,8 @@ const initialEvents: IEvent[] = [
 
 function App() {
   const [events, setEvents] = useState(initialEvents);
-  // const [events] = useState(initialEvents);
+
   const onAddEvent = (event: IEvent) => {
-    console.log(event);
     setEvents([...events, event]);
   };
   return (
