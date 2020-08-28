@@ -5,7 +5,8 @@ You can try the app on https://slido-assignment.vercel.app/
 
 ## How to try locally
 
-In the project directory, you can run:
+First you have to run `yarn` or `npm install` in the project directory. Then you
+can run:
 
 ### `yarn start`
 
