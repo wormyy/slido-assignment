@@ -1,4 +1,4 @@
-import { IEvent } from "./App";
+import { IEvent } from "../types/Event";
 
 export const sortEventsByDate = (events: IEvent[]) => {
   return events

@@ -1,5 +1,5 @@
 import React from "react";
-import { IEvent } from "../App";
+import { IEvent } from "../types/Event";
 import Event from "./Event";
 import Grid from "@material-ui/core/Grid";
 export interface EventProps {

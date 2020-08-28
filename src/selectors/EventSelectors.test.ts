@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
-import { selectPastAndUpcomingEvents, sortEventsByDate } from "./selectors";
-import { IEvent } from "./App";
+import { selectPastAndUpcomingEvents, sortEventsByDate } from "./EventSelectors";
+import { IEvent } from "../types/Event";
 
 describe("sortEventsByDate", () => {
   test("n = 3", () => {

@@ -7,7 +7,7 @@ import { useForm, Controller } from "react-hook-form";
 import Grid from "@material-ui/core/Grid";
 
 import styled from "styled-components";
-import { IEvent } from "../App";
+import { IEvent } from "../types/Event";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 
