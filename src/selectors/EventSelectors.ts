@@ -6,14 +6,14 @@ export const sortEventsByDate = (events: IEvent[]) => {
     .sort((event1, event2) => event1.date.getTime() - event2.date.getTime());
 };
 
-const differenceInMilliseconds = (date1: Date, date2: Date) => {
+const getDifferenceInMilliseconds = (date1: Date, date2: Date) => {
   return date1.getTime() - date2.getTime();
 };
 
 /**
  * Divides the events array in pastEvents (with date on or after cutOffDate,
- * sorted descending) and upcomingEvents (with date before cutOffDate, sorted
- * ascending)
+ * sorted with the most recent first) and upcomingEvents (with date before cutOffDate, sorted
+ * with the closest event first)
  *
  * The time complexity of this simple algorithm is O(n). It could be potentially
  * optimized to O(log n) by sorting the array first, finding the minimal positive
@@ -29,10 +29,14 @@ export const selectPastAndUpcomingEvents = (
   const upcomingEvents = [];
 
   events.forEach((event) => {
-    const difference = differenceInMilliseconds(event.date, cutOffDate);
+    // How far in time is the event time from our cutOffDate (eg. today)
+    const differenceInMilliseconds = getDifferenceInMilliseconds(
+      event.date,
+      cutOffDate
+    );
 
-    const isEventToday = difference === 0;
-    const isEventInTheFuture = difference > 0;
+    const isEventToday = differenceInMilliseconds === 0;
+    const isEventInTheFuture = differenceInMilliseconds > 0;
 
     if (isEventToday || isEventInTheFuture) {
       upcomingEvents.push(event);
