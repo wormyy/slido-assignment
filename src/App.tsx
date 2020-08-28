@@ -70,7 +70,13 @@ function App() {
   const [events, setEvents] = useState(initialEvents);
 
   const onAddEvent = (event: IEvent) => {
-    setEvents([...events, event]);
+    const newEvent = {
+      ...event,
+      date: new Date(event.date),
+      imageUrl: "https://picsum.photos/400/200",
+    };
+    debugger;
+    setEvents([...events, newEvent]);
   };
 
   const today = new Date();

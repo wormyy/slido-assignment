@@ -2,7 +2,6 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import { useForm, Controller } from "react-hook-form";
 import Grid from "@material-ui/core/Grid";
@@ -58,10 +57,12 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
               control={control}
               rules={{ required: true }}
               type="date"
-              defaultValue="2017-05-24"
               error={Boolean(errors.date)}
               style={{ marginTop: 16 }}
               data-test-id="input-date"
+              InputLabelProps={{
+                shrink: true,
+              }}
             />
             <Box marginY={4}>
               <Button
