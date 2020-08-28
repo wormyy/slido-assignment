@@ -26,8 +26,8 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
 
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    handleSubmit(() => {
-      onAddEvent();
+    handleSubmit((data) => {
+      onAddEvent(data);
       reset();
     })();
   };

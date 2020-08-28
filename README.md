@@ -1,5 +1,5 @@
-This project is a simple tool for displaying events and adding new ones. You
-can see both upcoming and past events.
+This project is a simple tool for event administration. You
+can see both upcoming and past events, as well as add new events.
 
 You can try the app on https://slido-assignment.vercel.app/
 
