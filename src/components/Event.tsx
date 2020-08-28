@@ -40,7 +40,7 @@ const Event: React.SFC<EventProps> = ({ event }) => {
             day: "numeric",
           })}
         </Typography>
-        <Typography paragraph>{event.place}</Typography>
+        <Typography noWrap>{event.place}</Typography>
       </CardContent>
       <CardActions disableSpacing>
         <Button
