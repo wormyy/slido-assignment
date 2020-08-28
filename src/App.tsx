@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import styled from "styled-components";
+import { v4 as uuidv4 } from "uuid";
 import EventList from "./components/EventList";
 import EventForm from "./components/EventForm";
 import { Container, Box } from "@material-ui/core";
@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import { selectPastAndUpcomingEvents } from "./selectors";
 
 export interface IEvent {
+  id: string;
   name: string;
   description: string;
   date: Date;
@@ -17,6 +18,7 @@ export interface IEvent {
 
 const initialEvents: IEvent[] = [
   {
+    id: uuidv4(),
     name: "React Day Berlin 2021",
     description:
       "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
@@ -25,6 +27,16 @@ const initialEvents: IEvent[] = [
     imageUrl: "https://picsum.photos/seed/123/400/200",
   },
   {
+    id: uuidv4(),
+    name: "React Conf 2022",
+    description:
+      "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
+    date: new Date(2022, 4, 12),
+    place: "Medellin, Colombia",
+    imageUrl: "https://picsum.photos/seed/145/400/200",
+  },
+  {
+    id: uuidv4(),
     name: "React Day Bangalore 2021",
     description:
       "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
@@ -33,6 +45,7 @@ const initialEvents: IEvent[] = [
     imageUrl: "https://picsum.photos/seed/32/400/200",
   },
   {
+    id: uuidv4(),
     name: "Reactathon 2020",
     description:
       "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
@@ -41,6 +54,7 @@ const initialEvents: IEvent[] = [
     imageUrl: "https://picsum.photos/seed/43/400/200",
   },
   {
+    id: uuidv4(),
     name: "React Alicante",
     description:
       "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
@@ -49,6 +63,7 @@ const initialEvents: IEvent[] = [
     imageUrl: "https://picsum.photos/seed/54/400/200",
   },
   {
+    id: uuidv4(),
     name: "ReactEurope 2020",
     description:
       "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
@@ -57,6 +72,7 @@ const initialEvents: IEvent[] = [
     imageUrl: "https://picsum.photos/seed/34/400/200",
   },
   {
+    id: uuidv4(),
     name: "React Finland 2018",
     description:
       "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",

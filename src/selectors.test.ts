@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 import { selectPastAndUpcomingEvents, sortEventsByDate } from "./selectors";
 import { IEvent } from "./App";
 
@@ -5,6 +7,7 @@ describe("sortEventsByDate", () => {
   test("n = 3", () => {
     const eventsToSort: IEvent[] = [
       {
+        id: uuidv4(),
         name: "Event in the future 2",
         description: "",
         date: new Date(2022, 0, 20),
@@ -12,6 +15,7 @@ describe("sortEventsByDate", () => {
         imageUrl: "",
       },
       {
+        id: uuidv4(),
         name: "Event in the future",
         description: "",
         date: new Date(2021, 0, 20),
@@ -19,6 +23,7 @@ describe("sortEventsByDate", () => {
         imageUrl: "",
       },
       {
+        id: uuidv4(),
         name: "Event in the past",
         description: "",
         date: new Date(2019, 0, 20),
@@ -31,6 +36,7 @@ describe("sortEventsByDate", () => {
 
     expect(result).toStrictEqual([
       {
+        id: uuidv4(),
         name: "Event in the past",
         description: "",
         date: new Date(2019, 0, 20),
@@ -38,6 +44,7 @@ describe("sortEventsByDate", () => {
         imageUrl: "",
       },
       {
+        id: uuidv4(),
         name: "Event in the future",
         description: "",
         date: new Date(2021, 0, 20),
@@ -45,6 +52,7 @@ describe("sortEventsByDate", () => {
         imageUrl: "",
       },
       {
+        id: uuidv4(),
         name: "Event in the future 2",
         description: "",
         date: new Date(2022, 0, 20),
@@ -58,6 +66,7 @@ describe("sortEventsByDate", () => {
 describe("selectPastAndUpcomingEvents", () => {
   test("n = 2", () => {
     const pastEvent: IEvent = {
+      id: uuidv4(),
       name: "Event in the past",
       description: "",
       date: new Date(2019, 0, 20),
@@ -66,6 +75,7 @@ describe("selectPastAndUpcomingEvents", () => {
     };
 
     const upcomingEvent: IEvent = {
+      id: uuidv4(),
       name: "Event in the future",
       description: "",
       date: new Date(2021, 0, 20),
@@ -86,6 +96,7 @@ describe("selectPastAndUpcomingEvents", () => {
     const cutOffDate = new Date(2020, 9, 27);
 
     const pastEvent: IEvent = {
+      id: uuidv4(),
       name: "Event in the past",
       description: "",
       date: new Date(2019, 0, 20),
@@ -94,6 +105,7 @@ describe("selectPastAndUpcomingEvents", () => {
     };
 
     const upcomingEvent: IEvent = {
+      id: uuidv4(),
       name: "Event in the future",
       description: "",
       date: new Date(2021, 0, 20),
@@ -102,6 +114,7 @@ describe("selectPastAndUpcomingEvents", () => {
     };
 
     const todayEvent: IEvent = {
+      id: uuidv4(),
       name: "Event today",
       description: "",
       date: cutOffDate,
@@ -121,6 +134,7 @@ describe("selectPastAndUpcomingEvents", () => {
     const cutOffDate = new Date(2020, 9, 27);
 
     const pastEvent: IEvent = {
+      id: uuidv4(),
       name: "",
       description: "",
       date: new Date(2019, 0, 20),
@@ -129,6 +143,7 @@ describe("selectPastAndUpcomingEvents", () => {
     };
 
     const upcomingEvent1: IEvent = {
+      id: uuidv4(),
       name: "",
       description: "",
       date: new Date(2021, 0, 20),
@@ -137,6 +152,7 @@ describe("selectPastAndUpcomingEvents", () => {
     };
 
     const upcomingEvent2: IEvent = {
+      id: uuidv4(),
       name: "",
       description: "",
       date: new Date(2023, 0, 20),
@@ -159,6 +175,7 @@ describe("selectPastAndUpcomingEvents", () => {
     const cutOffDate = new Date(2020, 9, 27);
 
     const pastEvent1: IEvent = {
+      id: uuidv4(),
       name: "",
       description: "",
       date: new Date(2019, 0, 20),
@@ -166,6 +183,7 @@ describe("selectPastAndUpcomingEvents", () => {
       imageUrl: "",
     };
     const pastEvent2: IEvent = {
+      id: uuidv4(),
       name: "",
       description: "",
       date: new Date(2020, 9, 26),
@@ -174,6 +192,7 @@ describe("selectPastAndUpcomingEvents", () => {
     };
 
     const upcomingEvent: IEvent = {
+      id: uuidv4(),
       name: "",
       description: "",
       date: new Date(2023, 0, 20),
@@ -193,6 +212,7 @@ describe("selectPastAndUpcomingEvents", () => {
     const cutOffDate = new Date(2020, 9, 27);
 
     const pastEvent1: IEvent = {
+      id: uuidv4(),
       name: "Event in the past",
       description: "",
       date: new Date(2010, 0, 20),
@@ -201,6 +221,7 @@ describe("selectPastAndUpcomingEvents", () => {
     };
 
     const pastEvent2: IEvent = {
+      id: uuidv4(),
       name: "Event in the past",
       description: "",
       date: new Date(2011, 0, 20),
@@ -209,6 +230,7 @@ describe("selectPastAndUpcomingEvents", () => {
     };
 
     const todayEvent: IEvent = {
+      id: uuidv4(),
       name: "Event in the past",
       description: "",
       date: cutOffDate,
@@ -217,6 +239,7 @@ describe("selectPastAndUpcomingEvents", () => {
     };
 
     const upcomingEvent1: IEvent = {
+      id: uuidv4(),
       name: "Event in the future",
       description: "",
       date: new Date(2021, 0, 20),
@@ -225,6 +248,7 @@ describe("selectPastAndUpcomingEvents", () => {
     };
 
     const upcomingEvent2: IEvent = {
+      id: uuidv4(),
       name: "Event in the future 2",
       description: "",
       date: new Date(2022, 0, 20),
@@ -232,6 +256,7 @@ describe("selectPastAndUpcomingEvents", () => {
       imageUrl: "",
     };
     const upcomingEvent3: IEvent = {
+      id: uuidv4(),
       name: "Event in the future 3",
       description: "",
       date: new Date(2023, 0, 20),
@@ -239,6 +264,7 @@ describe("selectPastAndUpcomingEvents", () => {
       imageUrl: "",
     };
     const upcomingEvent4: IEvent = {
+      id: uuidv4(),
       name: "Event in the future 3",
       description: "",
       date: new Date(2023, 0, 20),
