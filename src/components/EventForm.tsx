@@ -22,12 +22,18 @@ const StyledCardContent = styled(CardContent)`
 `;
 
 const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
-  const { control, handleSubmit, errors } = useForm<IEvent>();
+  const { control, handleSubmit, reset, errors } = useForm<IEvent>();
+
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleSubmit(onAddEvent)();
+    reset();
+  };
 
   return (
     <Grid item xs={12} md={8} lg={6}>
       <Card>
-        <form noValidate autoComplete="off" onSubmit={handleSubmit(onAddEvent)}>
+        <form noValidate autoComplete="off" onSubmit={onSubmit}>
           <StyledCardContent>
             <Typography variant="h2">Add Event</Typography>
             <Controller
@@ -57,10 +63,9 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
               label="Description"
               as={TextField}
               control={control}
-              rules={{ required: true }}
               defaultValue=""
               error={Boolean(errors.place)}
-              data-test-id="input-place"
+              data-test-id="input-description"
               margin="normal"
               multiline
             />
@@ -75,6 +80,7 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
               style={{ marginTop: 16 }}
               data-test-id="input-date"
               margin="normal"
+              defaultValue=""
               InputLabelProps={{
                 shrink: true,
               }}
