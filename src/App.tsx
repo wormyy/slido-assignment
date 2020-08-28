@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { selectPastAndUpcomingEvents } from "./selectors/EventSelectors";
 import { initialEvents, IEvent } from "./types/Event";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [events, setEvents] = useState(initialEvents);
@@ -13,6 +14,7 @@ function App() {
   const onAddEvent = (event: IEvent) => {
     const newEvent = {
       ...event,
+      id: uuidv4(),
       date: new Date(event.date),
       imageUrl: "https://picsum.photos/400/200",
     };
