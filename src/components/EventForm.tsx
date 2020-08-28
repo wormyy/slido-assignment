@@ -28,7 +28,11 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
     event.preventDefault();
     handleSubmit((data) => {
       onAddEvent(data);
-      reset();
+      reset({
+        name: "",
+        description: "",
+        place: "",
+      });
     })();
   };
 
