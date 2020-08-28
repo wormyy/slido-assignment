@@ -91,7 +91,6 @@ function App() {
       date: new Date(event.date),
       imageUrl: "https://picsum.photos/400/200",
     };
-    debugger;
     setEvents([...events, newEvent]);
   };
 
