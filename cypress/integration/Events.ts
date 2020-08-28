@@ -8,13 +8,25 @@ context("Add event to the list", () => {
   });
 
   it("Adds an event", function () {
+    const name = "React Summit";
+    const place = "Amsterdam";
+    const description = "It's gonna be fun";
+    const date = "2021-01-05";
+
     // Enter data to the form
-    cy.get("[data-test-id=input-name]").type("React Summit");
-    cy.get("[data-test-id=input-place]").type("Amsterdam");
-    cy.get("[data-test-id=input-date]").type("2021-06-20");
+    cy.get("[data-test-id=input-name]").type(name);
+    cy.get("[data-test-id=input-place]").type(place);
+    cy.get("[data-test-id=input-description]").type(description);
+    cy.get("[data-test-id=input-date]").type(date);
     cy.get("[data-test-id=button-submit]").click();
 
     // Verify that we created the event
-    cy.contains("React Summit");
+    cy.contains(name);
+    cy.contains(place);
+    cy.contains("January 5, 2021");
+
+    // Expand the card to see the description
+    cy.contains("Show details").click();
+    cy.contains(description);
   });
 });
