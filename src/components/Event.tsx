@@ -6,8 +6,9 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
-import IconButton from "@material-ui/core/IconButton";
+import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
 import { IEvent } from "../types/Event";
 
@@ -39,19 +40,31 @@ const Event: React.SFC<EventProps> = ({ event }) => {
             day: "numeric",
           })}
         </Typography>
+        <Typography paragraph>{event.place}</Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton
-          onClick={() => setExpanded(!expanded)}
-          aria-expanded={expanded}
-          aria-label="show more"
+        <Button
+          size="medium"
+          color="primary"
+          variant="contained"
+          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          target="_blank"
         >
-          Show more
-        </IconButton>
+          Buy ticket
+        </Button>
+        <Box marginLeft={2}>
+          <Button
+            onClick={() => setExpanded(!expanded)}
+            size="small"
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            Show details
+          </Button>
+        </Box>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Place: {event.place}</Typography>
           <Typography paragraph>{event.description}</Typography>
         </CardContent>
       </Collapse>
