@@ -73,7 +73,7 @@ function App() {
   };
   return (
     <Container maxWidth="lg">
-      <Typography variant="h1" align="center">
+      <Typography variant="h1" align="center" gutterBottom>
         Events
       </Typography>
       <Grid container spacing={3}>
