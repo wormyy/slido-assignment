@@ -9,7 +9,7 @@ import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 
-import { IEvent } from "../App";
+import { IEvent } from "../types/Event";
 
 export interface EventProps {
   event: IEvent;

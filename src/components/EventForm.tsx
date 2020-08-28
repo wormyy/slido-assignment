@@ -39,6 +39,7 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
               defaultValue=""
               error={Boolean(errors.name)}
               data-test-id="input-name"
+              margin="normal"
             />
             <Controller
               name="place"
@@ -49,6 +50,19 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
               defaultValue=""
               error={Boolean(errors.place)}
               data-test-id="input-place"
+              margin="normal"
+            />
+            <Controller
+              name="description"
+              label="Description"
+              as={TextField}
+              control={control}
+              rules={{ required: true }}
+              defaultValue=""
+              error={Boolean(errors.place)}
+              data-test-id="input-place"
+              margin="normal"
+              multiline
             />
             <Controller
               name="date"
@@ -60,6 +74,7 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
               error={Boolean(errors.date)}
               style={{ marginTop: 16 }}
               data-test-id="input-date"
+              margin="normal"
               InputLabelProps={{
                 shrink: true,
               }}
