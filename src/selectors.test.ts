@@ -185,7 +185,7 @@ describe("selectPastAndUpcomingEvents", () => {
 
     const result = selectPastAndUpcomingEvents(events, cutOffDate);
 
-    expect(result.pastEvents).toStrictEqual([pastEvent1, pastEvent2]);
+    expect(result.pastEvents).toStrictEqual([pastEvent2, pastEvent1]);
     expect(result.upcomingEvents).toStrictEqual([upcomingEvent]);
   });
 
@@ -258,7 +258,7 @@ describe("selectPastAndUpcomingEvents", () => {
 
     const result = selectPastAndUpcomingEvents(events, cutOffDate);
 
-    expect(result.pastEvents).toStrictEqual([pastEvent1, pastEvent2]);
+    expect(result.pastEvents).toStrictEqual([pastEvent2, pastEvent1]);
     expect(result.upcomingEvents).toStrictEqual([
       todayEvent,
       upcomingEvent1,

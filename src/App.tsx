@@ -5,6 +5,7 @@ import EventForm from "./components/EventForm";
 import { Container, Box } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import { selectPastAndUpcomingEvents } from "./selectors";
 
 export interface IEvent {
   name: string;
@@ -19,7 +20,7 @@ const initialEvents: IEvent[] = [
     name: "React Day Berlin 2021",
     description:
       "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
-    date: new Date(2021, 0, 20),
+    date: new Date(2022, 0, 20),
     place: "Berlin, Germany",
     imageUrl: "https://picsum.photos/seed/123/400/200",
   },
@@ -56,10 +57,10 @@ const initialEvents: IEvent[] = [
     imageUrl: "https://picsum.photos/seed/34/400/200",
   },
   {
-    name: "React Finland 2020",
+    name: "React Finland 2018",
     description:
       "Reactathon is a developer conference featuring 2 days of technical talks, networking, workshops & activities on all things React. Come hang out with and learn from some of the brightest minds and best speakers in the JS/React community.",
-    date: new Date(2020, 4, 24),
+    date: new Date(2018, 4, 24),
     place: "Helsinki, FI",
     imageUrl: "https://picsum.photos/seed/62/400/200",
   },
@@ -71,6 +72,13 @@ function App() {
   const onAddEvent = (event: IEvent) => {
     setEvents([...events, event]);
   };
+
+  const today = new Date();
+  const { pastEvents, upcomingEvents } = selectPastAndUpcomingEvents(
+    events,
+    today
+  );
+
   return (
     <Container maxWidth="lg">
       <Typography variant="h1" align="center" gutterBottom>
@@ -84,14 +92,14 @@ function App() {
         <Typography variant="h4">Upcoming events</Typography>
       </Box>
       <Grid container spacing={3}>
-        <EventList events={events} />
+        <EventList events={upcomingEvents} />
       </Grid>
 
       <Box marginTop={5} marginBottom={1}>
         <Typography variant="h4"> Past events</Typography>
       </Box>
       <Grid container spacing={3}>
-        <EventList events={events} />
+        <EventList events={pastEvents} />
       </Grid>
     </Container>
   );

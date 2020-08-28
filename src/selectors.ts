@@ -10,6 +10,17 @@ const differenceInMilliseconds = (date1: Date, date2: Date) => {
   return date1.getTime() - date2.getTime();
 };
 
+/**
+ * Divides the events array in pastEvents (with date on or after cutOffDate,
+ * sorted descending) and upcomingEvents (with date before cutOffDate, sorted
+ * ascending)
+ *
+ * The time complexity of this simple algorithm is O(n). It could be potentially
+ * optimized to O(log n) by sorting the array first, finding the minimal positive
+ * difference using binary search and then splitting the sorted array based on
+ * the result
+ *
+ */
 export const selectPastAndUpcomingEvents = (
   events: IEvent[],
   cutOffDate: Date
@@ -31,7 +42,7 @@ export const selectPastAndUpcomingEvents = (
   });
 
   return {
-    pastEvents: sortEventsByDate(pastEvents),
+    pastEvents: sortEventsByDate(pastEvents).reverse(),
     upcomingEvents: sortEventsByDate(upcomingEvents),
   };
 };
