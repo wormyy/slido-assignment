@@ -45,7 +45,8 @@ This will run the e2e tests.
   the first time. I like it a lot, especially the Grid and the utilities for
   constant spacing
 - Styled components - I hate global CSS, and I think css-in-js is the most
-  sensible way of handling CSS (css-modules are also fine). Styled-components is
+  sensible way of handling CSS (along with reusable components and a design
+  system). Styled-components is
   what I'm used to, but there other very good solutions. In the end I didn't
   have to use almost any custom styling, because MUI and it's utils handled
   almost all my needs (which I love, the less custom CSS the better)
@@ -62,6 +63,7 @@ This will run the e2e tests.
 - eslint - a nice to have, but TS replaced the most crucial eslint warnings
 
 ## Other considerations
+
 - e2e test now cover the happy path which provides the most value, but they
   could also cover some edgier cases
 - unit tests now cover the most complex function (pastAndUpcomingSelector) and provide great value. Maybe
