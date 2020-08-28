@@ -66,7 +66,8 @@ This will run the e2e tests.
 ## Other considerations
 
 - e2e test now cover the happy path which provides the most value, but they
-  could also cover some edgier cases
+  could also cover some edgier cases. The test is a bit fragile, as it relies on
+  the new element being the first in the upcoming array.
 - unit tests now cover the most complex function (pastAndUpcomingSelector) and provide great value. Maybe
   we could also unit test react components (form, event), but I don't think it would provide
   that much value in the current state
