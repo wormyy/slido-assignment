@@ -33,7 +33,11 @@ const Event: React.SFC<EventProps> = ({ event }) => {
           {event.name}
         </Typography>
         <Typography variant="subtitle1">
-          {event.date.toLocaleDateString()}
+          {event.date.toLocaleDateString("en-US", {
+            month: "long",
+            year: "numeric",
+            day: "numeric",
+          })}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
