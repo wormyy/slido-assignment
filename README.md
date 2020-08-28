@@ -31,25 +31,24 @@ This will run the e2e tests.
   (create-react-app allows getting started just in a few minutes and one-click
   deploy)
 - Typescript - I'm very used to TS now, it's easy to setup and it provides a great value,
-  especially when catching bugs early. In my opinion, the overhead of writing
+  especially when catching bugs early. In my opinion, the overhead of writing types
   is heavily dwarfed by the value it provides.
 - State management - I went with default `useState` hook, because I think it's
-  sufficient for now. If the state had grown, I would prefer to use `useReducer`
+  sufficient for now. If the state had grown, I would prefer to use `useReducer,`
   as it is easier to test. The new React Context API could solve the prop drilling
   problem that Redux was designed to solve with `connect`. I would still
-  consider Redux or some other state management library though, but it's not a
-  must now.
-- Material UI - There's a great value in using premade components, it speeds the
+  consider Redux or some other state management library, but I'm not convinced it's needed.
+- Material UI - There's a great value in using premade components, it speeds up the
   development very much and gives the application consistent look from scratch.
-  With a completely custom design, the value diminishes, but it's still worth it,
-  I think. I chose MUI instead of Bootsrap mainly because I wanted to try it for
+  With a completely custom design, the value diminishes, but it's still worth it.
+  I chose MUI instead of Bootsrap mainly because I wanted to try it for
   the first time. I like it a lot, especially the Grid and the utilities for
-  constant spacing
+  constant spacing.
 - Styled components - I hate global CSS, and I think css-in-js is the most
   sensible way of handling CSS (along with reusable components and a design
   system). Styled-components is
   what I'm used to, but there other very good solutions. In the end I didn't
-  have to use almost any custom styling, because MUI and it's utils handled
+  have to use almost any custom styling, because MUI and its utils handled
   almost all my needs (which I love, the less custom CSS the better)
 - react-hook-form - Another library I wanted to try out. I usually use Formik
   for data form management and I think it saves a lot of time, especially
