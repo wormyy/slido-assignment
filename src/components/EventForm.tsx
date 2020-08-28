@@ -10,6 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import styled from "styled-components";
 import { IEvent } from "../App";
 import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 
 export interface EventFormProps {
   onAddEvent: (event: IEvent) => void;
@@ -18,6 +19,7 @@ export interface EventFormProps {
 const StyledCardContent = styled(CardContent)`
   display: flex;
   flex-direction: column;
+  padding: 40px 80px;
 `;
 
 const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
@@ -61,18 +63,18 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
               style={{ marginTop: 16 }}
               data-test-id="input-date"
             />
+            <Box marginY={4}>
+              <Button
+                variant="contained"
+                size="large"
+                color="primary"
+                type="submit"
+                data-test-id="button-submit"
+              >
+                Add event
+              </Button>
+            </Box>
           </StyledCardContent>
-          <CardActions>
-            <Button
-              variant="contained"
-              size="large"
-              color="primary"
-              type="submit"
-              data-test-id="button-submit"
-            >
-              Add event
-            </Button>
-          </CardActions>
         </form>
       </Card>
     </Grid>
