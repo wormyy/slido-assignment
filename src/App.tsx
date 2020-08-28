@@ -47,7 +47,7 @@ function App() {
         <Typography variant="h4"> Past events</Typography>
       </Box>
       <Grid container spacing={3}>
-        <EventList events={pastEvents} />
+        <EventList events={pastEvents} isPast/>
       </Grid>
     </Container>
   );

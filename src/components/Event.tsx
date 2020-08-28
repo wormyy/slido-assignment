@@ -14,6 +14,7 @@ import { IEvent } from "../types/Event";
 
 export interface EventProps {
   event: IEvent;
+  isPast?: boolean;
 }
 
 const StyledEventCard = styled(Card)`
@@ -24,7 +25,7 @@ const StyledCardMedia = styled(CardMedia)`
   height: 200px;
 `;
 
-const Event: React.SFC<EventProps> = ({ event }) => {
+const Event: React.SFC<EventProps> = ({ event, isPast = false }) => {
   const [expanded, setExpanded] = useState(false);
   return (
     <StyledEventCard>
@@ -43,15 +44,17 @@ const Event: React.SFC<EventProps> = ({ event }) => {
         <Typography noWrap>{event.place}</Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <Button
-          size="medium"
-          color="primary"
-          variant="contained"
-          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-          target="_blank"
-        >
-          Buy ticket
-        </Button>
+        {!isPast ? (
+          <Button
+            size="medium"
+            color="primary"
+            variant="contained"
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            target="_blank"
+          >
+            Buy ticket
+          </Button>
+        ) : null}
         <Box marginLeft={2}>
           <Button
             onClick={() => setExpanded(!expanded)}
