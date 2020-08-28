@@ -64,7 +64,7 @@ const EventForm: React.SFC<EventFormProps> = ({ onAddEvent }) => {
               as={TextField}
               control={control}
               defaultValue=""
-              error={Boolean(errors.place)}
+              error={Boolean(errors.description)}
               data-test-id="input-description"
               margin="normal"
               multiline
