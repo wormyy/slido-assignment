@@ -29,7 +29,7 @@ export const selectPastAndUpcomingEvents = (
   const upcomingEvents = [];
 
   events.forEach((event) => {
-    // Bug fix: We don't want to take the time of the time into consideration
+    // Bug fix: We don't want to take the time of the day into consideration
     // Todo: write a test case for this bug
     cutOffDate.setHours(0, 0, 0, 0);
 
